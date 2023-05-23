@@ -1,6 +1,7 @@
 // Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs/promises");
+const generateLogo = require("./utils/generateLogo");
 
 // Create an array of questions for user input
 const questions = [
@@ -35,7 +36,8 @@ const questions = [
 // Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
-
+    const logo = generateLogo(answers);
+    fs.writeFile("./examples/logo.svg", logo);
   });
 }
 
