@@ -38,6 +38,7 @@ function init() {
   inquirer.prompt(questions).then((answers) => {
     const logo = generateLogo(answers);
     fs.writeFile("./examples/logo.svg", logo);
+    console.log("Generated logo.svg");
   });
 }
 
